@@ -1,8 +1,5 @@
 require "rails_helper"
 
-  # get('/directors/:id/edit_form', { :controller => 'directors', :action => 'edit_form' })
-  # get('/update_director/:id', { :controller => 'directors', :action => 'update_row' })
-
 feature "UPDATE:" do
   scenario "EDIT FORM: directors#edit_form RCAV works", points: 1 do
     director = FactoryGirl.create(:director)
@@ -37,7 +34,7 @@ feature "UPDATE:" do
   end
 
   scenario "UPDATE_ROW: directors#update_row updates row", points: 1 do
-    director = FactoryGirl.create(:director, :name => "first")
+    director = FactoryGirl.create(:director)
     starting_director_count = Director.count
     director_dob ="January 1, 1980"
     director_name = "Ana Lily Amirpour"
@@ -61,7 +58,7 @@ feature "UPDATE:" do
   end
 
   scenario "UPDATE_ROW: directors#update_row redirects to details page", points: 1 do
-    director = FactoryGirl.create(:director, :name => "first")
+    director = FactoryGirl.create(:director)
 
     visit "/directors/#{director.id}/edit_form"
     click_on "Update Director"
