@@ -28,24 +28,24 @@ feature "READ:" do
   end
 
   scenario "SHOW: movies#show RCAV works", points: 1 do
-    first_movie = FactoryGirl.create(:movie)
+    movie = FactoryGirl.create(:movie)
 
-    visit "/movies/#{first_movie.id}"
+    visit "/movies/#{movie.id}"
 
     expect(page)
   end
 
   scenario "SHOW: movies#show displays movie details", points: 1 do
-    first_movie = FactoryGirl.create(:movie)
+    movie = FactoryGirl.create(:movie)
 
-    visit "/movies/#{first_movie.id}"
+    visit "/movies/#{movie.id}"
 
-    expect(page).to have_content(first_movie.title)
-    expect(page).to have_content(first_movie.year)
-    expect(page).to have_content(first_movie.duration)
-    expect(page).to have_content(first_movie.description)
-    expect(page).to have_content(first_movie.director_id)
-    expect(page).to have_css("img[src*='#{first_movie.image_url}']")
+    expect(page).to have_content(movie.title)
+    expect(page).to have_content(movie.year)
+    expect(page).to have_content(movie.duration)
+    expect(page).to have_content(movie.description)
+    expect(page).to have_content(movie.director_id)
+    expect(page).to have_css("img[src*='#{movie.image_url}']")
   end
 
 end

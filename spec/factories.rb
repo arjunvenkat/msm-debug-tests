@@ -6,6 +6,13 @@ FactoryGirl.define do
     duration 180
     description "Not a real movie"
     image_url "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Lake_Bondhus_Norway_2862.jpg/1280px-Lake_Bondhus_Norway_2862.jpg"
-    director_id 1 #FIX
+    director_id 1
+  end
+
+  factory :director do
+    dob "January 1, 1970"
+    name "Someone"
+    bio "Someone's background"
+    image_url "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Lake_Bondhus_Norway_2862.jpg/1280px-Lake_Bondhus_Norway_2862.jpg"
   end
 end
