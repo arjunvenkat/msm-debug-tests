@@ -11,7 +11,6 @@ feature "CREATE:" do
     visit "/actors/new_form"
 
     expect(page).to have_selector("form", count: 1)
-    expect(page).to have_selector("input", count: 4)
     expect(page).to have_selector("label", text: "Dob")
     expect(page).to have_selector("label", text: "Name")
     expect(page).to have_selector("label", text: "Bio")

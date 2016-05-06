@@ -11,13 +11,11 @@ feature "CREATE:" do
     visit "/movies/new_form"
 
     expect(page).to have_selector("form", count: 1)
-    expect(page).to have_selector("input", count: 5)
     expect(page).to have_selector("label", text: "Title")
     expect(page).to have_selector("label", text: "Year")
     expect(page).to have_selector("label", text: "Duration")
     expect(page).to have_selector("label", text: "Description")
     expect(page).to have_selector("label", text: "Image url")
-    expect(page).to have_selector("select", count: 1)
     expect(page).to have_selector("label", text: "Director")
   end
 

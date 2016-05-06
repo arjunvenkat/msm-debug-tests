@@ -22,4 +22,10 @@ FactoryGirl.define do
     bio "Someone's background"
     image_url "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Lake_Bondhus_Norway_2862.jpg/1280px-Lake_Bondhus_Norway_2862.jpg"
   end
+
+  factory :role do
+    character_name "Superman"
+    movie_id 1
+    actor_id 1
+  end
 end
