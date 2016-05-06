@@ -1,7 +1,5 @@
 require "rails_helper"
 
-# update_row: receives info from the edit form and updates a row in the table
-
 feature "UPDATE:" do
   scenario "EDIT FORM: movies#edit_form RCAV works", points: 1 do
     movie = FactoryGirl.create(:movie)
@@ -42,7 +40,7 @@ feature "UPDATE:" do
     expect(page).to have_select('director_id', selected: "#{movie_director.name}")
   end
 
-  scenario "UPDATE_ROW: movies#update_row updates movie entry", points: 1 do
+  scenario "UPDATE_ROW: movies#update_row updates row", points: 1 do
     movie = FactoryGirl.create(:movie)
     director = FactoryGirl.create(:director, :name => "first")
     second_director = FactoryGirl.create(:director, :name => "second")
@@ -74,7 +72,7 @@ feature "UPDATE:" do
     expect(updated_movie.director_id).to eq(movie_director_id)
   end
 
-  scenario "UPDATE_ROW: movies#update_row redirects to photo details page", points: 1 do
+  scenario "UPDATE_ROW: movies#update_row redirects to details page", points: 1 do
     movie = FactoryGirl.create(:movie)
 
     visit "/movies/#{movie.id}/edit_form"

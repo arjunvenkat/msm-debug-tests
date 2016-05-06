@@ -21,7 +21,7 @@ feature "CREATE:" do
     expect(page).to have_selector("label", text: "Director")
   end
 
-  scenario "CREATE ROW: movies#create_row creates new movie entry", points: 1 do
+  scenario "CREATE ROW: movies#create_row creates new row", points: 1 do
     director = FactoryGirl.create(:director)
     movie_title = "The Godfather: Part VX"
     movie_year = "2016"

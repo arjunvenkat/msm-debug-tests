@@ -7,7 +7,7 @@ feature "READ:" do
     expect(page)
   end
 
-  scenario "INDEX: movies#index displays a list of existing movies", points: 1 do
+  scenario "INDEX: movies#index displays a list of rows", points: 1 do
     first_movie = FactoryGirl.create(:movie)
     second_movie = FactoryGirl.create(:movie)
 
@@ -35,7 +35,7 @@ feature "READ:" do
     expect(page)
   end
 
-  scenario "SHOW: movies#show displays movie details", points: 1 do
+  scenario "SHOW: movies#show displays row details", points: 1 do
     movie = FactoryGirl.create(:movie)
 
     visit "/movies/#{movie.id}"

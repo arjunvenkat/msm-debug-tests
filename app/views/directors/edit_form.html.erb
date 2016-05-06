@@ -2,7 +2,7 @@
   <h1>Edit Director #<%= @director.id %></h1>
 </div>
 
-<form action="/update_director/<%= @director.id %>" class="form-horizontal">
+<form method="post" action="/update_director/<%= @director.id %>" class="form-horizontal">
   <!-- Label and input for dob -->
   <div class="form-group">
     <label for="dob" class="col-sm-2 control-label">
@@ -48,4 +48,7 @@
       <input type="submit" value="Update Director" class="btn btn-primary">
     </div>
   </div>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
 </form>
