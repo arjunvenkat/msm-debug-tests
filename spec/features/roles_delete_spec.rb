@@ -5,7 +5,8 @@ feature "DELETE:" do
     role = FactoryGirl.create(:role)
     starting_count = Role.count
 
-    visit "/delete_role/#{role.id}"
+    visit "/roles"
+    find('.btn-danger').click
 
     final_count = Role.count
     does_row_still_exist = Role.exists?(role.id)

@@ -5,7 +5,8 @@ feature "DELETE:" do
     director = FactoryGirl.create(:director)
     starting_director_count = Director.count
 
-    visit "/delete_director/#{director.id}"
+    visit "/directors"
+    find('.btn-danger').click
 
     final_director_count = Director.count
     does_director_still_exist = Director.exists?(director.id)

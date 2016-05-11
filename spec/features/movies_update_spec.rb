@@ -4,7 +4,8 @@ feature "UPDATE:" do
   scenario "EDIT FORM: movies#edit_form RCAV works", points: 1 do
     movie = FactoryGirl.create(:movie)
 
-    visit "/movies/#{movie.id}/edit_form"
+    visit "/movies"
+    all('.btn-warning').last.click
 
     expect(page)
   end
@@ -12,7 +13,8 @@ feature "UPDATE:" do
   scenario "EDIT FORM: movies#edit_form has input elements with agreed-upon input labels", points: 1 do
     movie = FactoryGirl.create(:movie)
 
-    visit "/movies/#{movie.id}/edit_form"
+    visit "/movies"
+    all('.btn-warning').last.click
 
     expect(page).to have_selector("form", count: 1)
     expect(page).to have_selector("input", count: 5)
@@ -30,7 +32,8 @@ feature "UPDATE:" do
     director = FactoryGirl.create(:director)
     movie_director = Director.find(movie.director_id)
 
-    visit "/movies/#{movie.id}/edit_form"
+    visit "/movies"
+    all('.btn-warning').last.click
 
     expect(page).to have_selector("input[value='#{movie.title}']")
     expect(page).to have_selector("input[value='#{movie.year}']")
@@ -52,7 +55,8 @@ feature "UPDATE:" do
     movie_image_url = "http://www.google.com/notreal"
     movie_director_id = 2
 
-    visit "/movies/#{movie.id}/edit_form"
+    visit "/movies"
+    all('.btn-warning').last.click
     fill_in("Title", with: movie_title)
     fill_in("Year", with: movie_year)
     fill_in("Duration", with: movie_duration)
@@ -75,7 +79,8 @@ feature "UPDATE:" do
   scenario "UPDATE_ROW: movies#update_row redirects to details page", points: 1 do
     movie = FactoryGirl.create(:movie)
 
-    visit "/movies/#{movie.id}/edit_form"
+    visit "/movies"
+    all('.btn-warning').last.click
     click_on "Update Movie"
 
     expect(page).to have_content(movie.title)

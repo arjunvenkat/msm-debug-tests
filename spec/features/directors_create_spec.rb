@@ -2,13 +2,15 @@ require "rails_helper"
 
 feature "CREATE:" do
   scenario "NEW FORM: directors#new_form RCAV works", points: 1 do
-    visit "/directors/new_form"
+    visit "/directors"
+    find('a', :text => /new/i).click
 
     expect(page)
   end
 
   scenario "NEW FORM: directors#new_form has input elements with agreed-upon input labels", points: 1 do
-    visit "/directors/new_form"
+    visit "/directors"
+    find('a', :text => /new/i).click
 
     expect(page).to have_selector("form", count: 1)
     expect(page).to have_selector("label", text: "Dob")
@@ -24,7 +26,8 @@ feature "CREATE:" do
     director_bio = "See http://www.imdb.com/name/nm3235877/"
     director_image_url = "http://ia.media-imdb.com/images/M/MV5BMjI1MTk0MjQwMF5BMl5BanBnXkFtZTgwNzM3MjIwMTE@._V1_UX214_CR0,0,214,317_AL_.jpg"
 
-    visit "/directors/new_form"
+    visit "/directors"
+    find('a', :text => /new/i).click
     fill_in("Dob", with: director_dob)
     fill_in("Name", with: director_name)
     fill_in("Bio", with: director_bio)

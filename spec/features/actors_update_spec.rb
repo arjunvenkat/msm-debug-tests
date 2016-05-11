@@ -4,7 +4,8 @@ feature "UPDATE:" do
   scenario "EDIT FORM: actors#edit_form RCAV works", points: 1 do
     actor = FactoryGirl.create(:actor)
 
-    visit "/actors/#{actor.id}/edit_form"
+    visit "/actors"
+    all('.btn-warning').last.click
 
     expect(page)
   end
@@ -12,7 +13,8 @@ feature "UPDATE:" do
   scenario "EDIT FORM: actors#edit_form has input elements with agreed-upon input labels", points: 1 do
     actor = FactoryGirl.create(:actor)
 
-    visit "/actors/#{actor.id}/edit_form"
+    visit "/actors"
+    all('.btn-warning').last.click
 
     expect(page).to have_selector("form", count: 1)
     expect(page).to have_selector("input", count: 4)
@@ -25,7 +27,8 @@ feature "UPDATE:" do
   scenario "EDIT FORM: actors#edit_form has prepopulated input fields", points: 1 do
     actor = FactoryGirl.create(:actor)
 
-    visit "/actors/#{actor.id}/edit_form"
+    visit "/actors"
+    all('.btn-warning').last.click
 
     expect(page).to have_selector("input[value='#{actor.dob}']")
     expect(page).to have_selector("input[value='#{actor.name}']")
@@ -41,7 +44,8 @@ feature "UPDATE:" do
     row_bio = "See http://www.imdb.com/name/nm3235877/"
     row_image_url = "http://ia.media-imdb.com/images/M/MV5BMjI1MTk0MjQwMF5BMl5BanBnXkFtZTgwNzM3MjIwMTE@._V1_UX214_CR0,0,214,317_AL_.jpg"
 
-    visit "/actors/#{actor.id}/edit_form"
+    visit "/actors"
+    all('.btn-warning').last.click
     fill_in("Dob", with: row_dob)
     fill_in("Name", with: row_name)
     fill_in("Bio", with: row_bio)
@@ -60,7 +64,8 @@ feature "UPDATE:" do
   scenario "UPDATE_ROW: actors#update_row redirects to details page", points: 1 do
     actor = FactoryGirl.create(:actor)
 
-    visit "/actors/#{actor.id}/edit_form"
+    visit "/actors"
+    all('.btn-warning').last.click
     click_on "Update Actor"
 
     expect(page).to have_content(actor.dob)

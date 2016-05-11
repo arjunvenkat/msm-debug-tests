@@ -5,7 +5,8 @@ feature "DELETE:" do
     movie = FactoryGirl.create(:movie)
     starting_movie_count = Movie.count
 
-    visit "/delete_movie/#{movie.id}"
+    visit "/movies"
+    find('.btn-danger').click
 
     final_movie_count = Movie.count
     does_movie_still_exist = Movie.exists?(movie.id)

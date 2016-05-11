@@ -26,7 +26,8 @@ feature "READ:" do
   scenario "SHOW: directors#show RCAV works", points: 1 do
     director = FactoryGirl.create(:director)
 
-    visit "/directors/#{director.id}"
+    visit "/directors"
+    all('.btn-primary').last.click
 
     expect(page)
   end
@@ -34,7 +35,8 @@ feature "READ:" do
   scenario "SHOW: directors#show displays row details", points: 1 do
     director = FactoryGirl.create(:director)
 
-    visit "/directors/#{director.id}"
+    visit "/directors"
+    all('.btn-primary').last.click
 
     expect(page).to have_content(director.dob)
     expect(page).to have_content(director.name)

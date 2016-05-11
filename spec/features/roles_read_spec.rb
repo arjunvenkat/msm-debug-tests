@@ -27,7 +27,8 @@ feature "READ:" do
   scenario "SHOW: roles#show RCAV works", points: 1 do
     role = FactoryGirl.create(:role)
 
-    visit "/roles/#{role.id}"
+    visit "/roles"
+    all('.btn-primary').last.click
 
     expect(page)
   end
@@ -35,7 +36,8 @@ feature "READ:" do
   scenario "SHOW: roles#show displays row details", points: 1 do
     role = FactoryGirl.create(:role)
 
-    visit "/roles/#{role.id}"
+    visit "/roles"
+    all('.btn-primary').last.click
 
     expect(page).to have_content(role.character_name)
     expect(page).to have_content(role.movie_id)

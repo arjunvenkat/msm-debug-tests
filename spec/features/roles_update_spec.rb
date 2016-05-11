@@ -4,7 +4,8 @@ feature "UPDATE:" do
   scenario "EDIT FORM: roles#edit_form RCAV works", points: 1 do
     role = FactoryGirl.create(:role)
 
-    visit "/roles/#{role.id}/edit_form"
+    visit "/roles"
+    all('.btn-warning').last.click
 
     expect(page)
   end
@@ -12,7 +13,8 @@ feature "UPDATE:" do
   scenario "EDIT FORM: roles#edit_form has input elements with agreed-upon input labels", points: 1 do
     role = FactoryGirl.create(:role)
 
-    visit "/roles/#{role.id}/edit_form"
+    visit "/roles"
+    all('.btn-warning').last.click
 
     expect(page).to have_selector("form", count: 1)
     expect(page).to have_selector("label", text: "Character name")
@@ -25,7 +27,8 @@ feature "UPDATE:" do
     actor = FactoryGirl.create(:actor)
     role = FactoryGirl.create(:role, :movie_id => movie.id, :actor_id => actor.id)
 
-    visit "/roles/#{role.id}/edit_form"
+    visit "/roles"
+    all('.btn-warning').last.click
 
     expect(page).to have_selector("input[value='#{role.character_name}']")
     expect(page).to have_select('movie_id', selected: "#{Movie.find(role.movie_id).title}")
@@ -39,7 +42,8 @@ feature "UPDATE:" do
     starting_count = Role.count
     row_character_name = "Super super superman"
 
-    visit "/roles/#{role.id}/edit_form"
+    visit "/roles"
+    all('.btn-warning').last.click
     fill_in("Character name", with: row_character_name)
     select "#{movie.title}", from: "Movie"
     select "#{actor.name}", from: "Actor"
@@ -56,7 +60,8 @@ feature "UPDATE:" do
   scenario "UPDATE_ROW: roles#update_row redirects to details page", points: 1 do
     role = FactoryGirl.create(:role)
 
-    visit "/roles/#{role.id}/edit_form"
+    visit "/roles"
+    all('.btn-warning').last.click
     click_on "Update Role"
 
     expect(page).to have_content(role.character_name)

@@ -30,7 +30,8 @@ feature "READ:" do
   scenario "SHOW: movies#show RCAV works", points: 1 do
     movie = FactoryGirl.create(:movie)
 
-    visit "/movies/#{movie.id}"
+    visit "/movies"
+    all('.btn-primary').last.click
 
     expect(page)
   end
@@ -38,7 +39,8 @@ feature "READ:" do
   scenario "SHOW: movies#show displays row details", points: 1 do
     movie = FactoryGirl.create(:movie)
 
-    visit "/movies/#{movie.id}"
+    visit "/movies"
+    all('.btn-primary').last.click
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content(movie.year)

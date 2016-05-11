@@ -26,7 +26,8 @@ feature "READ:" do
   scenario "SHOW: actors#show RCAV works", points: 1 do
     actor = FactoryGirl.create(:actor)
 
-    visit "/actors/#{actor.id}"
+    visit "/actors"
+    all('.btn-primary').last.click
 
     expect(page)
   end
@@ -34,7 +35,8 @@ feature "READ:" do
   scenario "SHOW: actors#show displays row details", points: 1 do
     actor = FactoryGirl.create(:actor)
 
-    visit "/actors/#{actor.id}"
+    visit "/actors"
+    all('.btn-primary').last.click
 
     expect(page).to have_content(actor.dob)
     expect(page).to have_content(actor.name)

@@ -2,13 +2,15 @@ require "rails_helper"
 
 feature "CREATE:" do
   scenario "NEW FORM: movies#new_form RCAV works", points: 1 do
-    visit "/movies/new_form"
+    visit "/movies"
+    find('a', :text => /new/i).click
 
     expect(page)
   end
 
   scenario "NEW FORM: movies#new_form has input elements with agreed-upon input labels", points: 1 do
-    visit "/movies/new_form"
+    visit "/movies"
+    find('a', :text => /new/i).click
 
     expect(page).to have_selector("form", count: 1)
     expect(page).to have_selector("label", text: "Title")
@@ -29,7 +31,8 @@ feature "CREATE:" do
     movie_director_id = 1
     starting_movie_count = Movie.count
 
-    visit "/movies/new_form"
+    visit "/movies"
+    find('a', :text => /new/i).click
     fill_in("Title", with: movie_title)
     fill_in("Year", with: movie_year)
     fill_in("Duration", with: movie_duration)
