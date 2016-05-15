@@ -6,7 +6,7 @@ feature "DELETE:" do
     starting_count = Actor.count
 
     visit "/actors"
-    find('.btn-danger').click
+    all('.btn-danger').last.click
 
     final_count = Actor.count
     does_row_still_exist = Actor.exists?(actor.id)

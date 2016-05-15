@@ -53,7 +53,7 @@ feature "UPDATE:" do
     movie_duration = 250
     movie_description = "Real movie"
     movie_image_url = "http://www.google.com/notreal"
-    movie_director_id = 2
+    movie_director_id = second_director.id
 
     visit "/movies"
     all('.btn-warning').last.click

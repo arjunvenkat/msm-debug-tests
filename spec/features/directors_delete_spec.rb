@@ -6,7 +6,7 @@ feature "DELETE:" do
     starting_director_count = Director.count
 
     visit "/directors"
-    find('.btn-danger').click
+    all('.btn-danger').last.click
 
     final_director_count = Director.count
     does_director_still_exist = Director.exists?(director.id)

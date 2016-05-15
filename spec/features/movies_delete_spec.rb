@@ -6,7 +6,7 @@ feature "DELETE:" do
     starting_movie_count = Movie.count
 
     visit "/movies"
-    find('.btn-danger').click
+    all('.btn-danger').last.click
 
     final_movie_count = Movie.count
     does_movie_still_exist = Movie.exists?(movie.id)

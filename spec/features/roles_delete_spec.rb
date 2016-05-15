@@ -6,7 +6,7 @@ feature "DELETE:" do
     starting_count = Role.count
 
     visit "/roles"
-    find('.btn-danger').click
+    all('.btn-danger').last.click
 
     final_count = Role.count
     does_row_still_exist = Role.exists?(role.id)
